@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Page</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#button').click(function() {
+			var userName = $('#username').val();
+			var password = $('#password').val();
+			var returnString = '{"userName": "'+userName+'","password":"'+password+'"}';
+			$.ajax({
+				type: "POST",
+				url: "/learning/submitDetails",
+				contentType: 'application/json',
+				data: returnString,
+				success: function() {
+					alert('success');
+				},
+				failure: function() {
+					alert('failure');
+				}
+			});
+		});
+	});
+</script>
+</head>
+	<body>
+		<table>
+			<tr><td>Username:</td><td> <input type="text" id="username" name="username" placeholder="Username"></input></td></tr>
+			<tr><td>Password:</td><td> <input type="text" id="password" name="password" placeholder="Password"></input></td></tr>
+			<tr><td></td><td><input type="button" id="button" name="button" value="Submit"></input></td></tr>
+		</table>
+	</body>
+</html>

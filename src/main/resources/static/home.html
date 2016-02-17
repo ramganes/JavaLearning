@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("button").click(function() {
+			$.ajax({
+				url: "/submitDetails";
+				success: function() {
+					alert('success');
+				};
+				failure: function() {
+					alert('failure');
+				}
+			});
+		});		
+	});
+</script>
+</head>
+	<body>
+		<table>
+			<tr><td>Username:</td><td> <input type="text" value="" placeholder="Username"></input></td></tr>
+			<tr><td>Password:</td><td> <input type="text" value="" placeholder="Password"></input></td></tr>
+			<tr><td></td><td><button type="button" value="Submit">Submit</button></td>></tr>
+		</table>
+	</body>
+</html>
